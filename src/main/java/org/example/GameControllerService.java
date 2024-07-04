@@ -42,16 +42,13 @@ public class GameControllerService extends HttpServlet {
         String userAnswerStr = request.getParameter("userAnswer");
 
         if (userAnswerStr != null && !userAnswerStr.isEmpty()){
-            try {
                 int userAnswer = Integer.parseInt(userAnswerStr);
                 if(userAnswer == currentQuestion.getRightAnswer()){
                     session.setAttribute("message","Correct!");
                 } else {
                     session.setAttribute("message","Incorrect");
                 }
-            }catch (NumberFormatException e){
-                session.setAttribute("message","Error");
-            }
+
         }
         List<GameQuestion> questions = GameQuestionBase.getInstance().getQuestions();
         int currentQuestionIndex = (Integer) session.getAttribute("currentQuestionIndex");

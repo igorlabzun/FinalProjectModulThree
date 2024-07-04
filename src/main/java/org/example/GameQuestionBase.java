@@ -1,15 +1,24 @@
 package org.example;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class GameQuestionBase {
+    private static final Logger logger = LoggerFactory.getLogger(GameQuestionBase.class);
     private static GameQuestionBase instance;
     private final List<GameQuestion> questions;
     private final int currentQuestionIndex;
 
-    private GameQuestionBase(){
+
+    protected GameQuestionBase(){
         questions = new ArrayList<>();
+        logger.info("Questions:{}",questions.isEmpty());
+
         questions.add(new GameQuestion("img/1.jpg",
                 "Rarity",
                 "Rainbow Dach",
@@ -80,6 +89,7 @@ public class GameQuestionBase {
                 "Jerry",
                 "Spike",
                 "Tom",3));
+
 
         currentQuestionIndex = 0;
 
