@@ -20,7 +20,7 @@
             %>
 
             <div class="question-image-container">
-                <img src="<%=questionImage%>" alt="Зображення питання" class="question-image" width="200">
+                <img src="<%=questionImage%>" alt="Question Images" class="question-image" width="200">
             </div>
 
             <div class="pony-info">Питання ${sessionScope.currentQuestionIndex + 1} з ${sessionScope.totalQuestion}</p></div>

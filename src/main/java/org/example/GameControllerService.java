@@ -17,8 +17,9 @@ public class GameControllerService extends HttpServlet {
         HttpSession session = request.getSession(true);
         String level = request.getParameter("level");
         String startNewGame = request.getParameter("newGame");
+        String beginGame = " ";
 
-        if ("true".equals(startNewGame)){
+        if (beginGame.equals(startNewGame)){
             session.removeAttribute("currentQuestion");
             session.removeAttribute("currentQuestionIndex");
             session.removeAttribute("message");
@@ -48,7 +49,6 @@ public class GameControllerService extends HttpServlet {
                 } else {
                     session.setAttribute("message","Incorrect");
                 }
-
         }
         List<GameQuestion> questions = GameQuestionBase.getInstance().getQuestions();
         int currentQuestionIndex = (Integer) session.getAttribute("currentQuestionIndex");
